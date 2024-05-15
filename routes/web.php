@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\IndexController;
+use App\Http\Controllers\BandController;
 
-Route::get('/', [IndexController::class, 'homePage'])->name('home');
+
+Route::get('/', [BandController::class, 'showBands'])->name('home');
 

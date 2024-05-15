@@ -1,94 +1,53 @@
-@extends('layouts.fe')
+@extends('layouts.main_layout')
 
 @section('content')
-    <h1 class="mt-5 mb-5">Home page</h1>
+<div class="bands-img">
+    <h1 class="mb-5">Explore some bands</h1>
+</div>
 
-    <table class="table align-middle mb-0 bg-white mb-5">
-        <thead class="bg-light">
+<div class="container mt-5">
+    <table class="table align-middle mb-0 table-dark mb-5">
+        <thead class="bg-dark">
             <tr>
-                <th>Band</th>
-                <th>Title</th>
-                <th>Status</th>
-                <th>Position</th>
-                <th>Actions</th>
+                <th>Band 🎸</th>
+                <th>Albums 💽</th>
+                <th class="text-center">Actions 🖱</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
-                            style="width: 45px; height: 45px" class="rounded-circle" />
-                        <div class="ms-3">
-                            <p class="fw-bold mb-1">John Doe</p>
-                            <p class="text-muted mb-0">john.doe@gmail.com</p>
+            @foreach ($bands as $band)
+                <tr>
+                    <td>
+                        <div class="d-flex align-items-center">
+                            @if ($band->image)
+                                <img src="{{ $band->image }}" alt="{{ $band->name }}"
+                                    style="width: 45px; height: 45px" class="rounded-circle" />
+                            @else
+                                <!-- Se não houver imagem, exibir um ícone padrão -->
+                                <i class="fas fa-music"></i>
+                            @endif
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">{{ $band->name }}</p>
+                                <p class="mb-0 text-light">{{ $band->genre }}</p>
+                            </div>
                         </div>
-                    </div>
-                </td>
-                <td>
-                    <p class="fw-normal mb-1">Software engineer</p>
-                    <p class="text-muted mb-0">IT department</p>
-                </td>
-                <td>
-                    <span class="badge badge-success rounded-pill d-inline">Active</span>
-                </td>
-                <td>Senior</td>
-                <td>
-                    <button type="button" class="btn btn-link btn-sm btn-rounded">
-                        Edit
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" class="rounded-circle" alt=""
-                            style="width: 45px; height: 45px" />
-                        <div class="ms-3">
-                            <p class="fw-bold mb-1">Alex Ray</p>
-                            <p class="text-muted mb-0">alex.ray@gmail.com</p>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <p class="fw-normal mb-1">Consultant</p>
-                    <p class="text-muted mb-0">Finance</p>
-                </td>
-                <td>
-                    <span class="badge badge-primary rounded-pill d-inline">Onboarding</span>
-                </td>
-                <td>Junior</td>
-                <td>
-                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
-                        Edit
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle" alt=""
-                            style="width: 45px; height: 45px" />
-                        <div class="ms-3">
-                            <p class="fw-bold mb-1">Kate Hunington</p>
-                            <p class="text-muted mb-0">kate.hunington@gmail.com</p>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <p class="fw-normal mb-1">Designer</p>
-                    <p class="text-muted mb-0">UI/UX</p>
-                </td>
-                <td>
-                    <span class="badge badge-warning rounded-pill d-inline">Awaiting</span>
-                </td>
-                <td>Senior</td>
-                <td>
-                    <button type="button" class="btn btn-link btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
-                        Edit
-                    </button>
-                </td>
-            </tr>
+                    </td>
+                    <td>
+                        <!-- Número de álbuns da banda -->
+                        <p class="fw-normal mb-1">{{ $band->album_count }}
+                        @for($i = 0; $i < $band->album_count;$i++)
+                        💿
+                        @endfor
+                        </p>
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-info" mdbRipple>View</button>
+                        <button type="button" class="btn btn-warning" mdbRipple>Edit</button>
+                        <button type="button" class="btn btn-danger" mdbRipple>Delete</button>
+                    </td>
+                </tr>
+            @endforeach
         </tbody>
     </table>
+</div>
 @endsection
