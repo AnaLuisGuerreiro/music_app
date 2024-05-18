@@ -41,9 +41,9 @@
                         </p>
                     </td>
                     <td class="text-center">
-                        <button type="button" class="btn btn-info" mdbRipple>View</button>
-                        <button type="button" class="btn btn-warning" mdbRipple>Edit</button>
-                        <button type="button" class="btn btn-danger" mdbRipple>Delete</button>
+                        <a href="{{ route('albums.albums_view',['id' => $band->id]) }}" class="btn btn-info" mdbRipple >View</a>
+                        <a  class="btn btn-warning" mdbRipple>Edit</a>
+                        <a  class="btn btn-danger" mdbRipple>Delete</a>
                     </td>
                 </tr>
             @endforeach

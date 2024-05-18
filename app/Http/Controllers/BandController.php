@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Band;
+use App\Models\Album;
+
 
 use Illuminate\Http\Request;
 
@@ -12,4 +14,12 @@ class BandController extends Controller
 
         return view('home', compact('bands'));
     }
+
+     public function albumsView($id){
+        $band = Band::find($id);
+        $albums = $band->albums;
+
+        return view('albums.albums_view', compact('band','albums'));
+    }
+
 }

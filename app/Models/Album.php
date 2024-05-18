@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Album extends Model
 {
-    use HasFactory;
+     public function band()
+    {
+        return $this->belongsTo(Band::class);
+    }
 }
