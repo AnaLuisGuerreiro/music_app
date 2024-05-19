@@ -15,6 +15,11 @@ h1 {
     text-shadow: 2px 2px 2px rgb(255, 255, 255);
 }
 
+.music-logo {
+    margin-left: 20px;
+    width: 90px;
+}
+
 .bands-img {
     background-image: url("../img/bands.avif");
     background-position: center;
