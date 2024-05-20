@@ -2,10 +2,10 @@
 
 @section('content')
 
-<h1>{{ $band->name }}</h1>
 
 
 <div class="container mt-5">
+    <h1 class="mb-5">{{ $band->name }}</h1>
     <table class="table align-middle mb-0 table-dark mb-5">
         <thead class="bg-dark">
             <tr>
