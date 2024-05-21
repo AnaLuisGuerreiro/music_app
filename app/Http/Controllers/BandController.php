@@ -18,12 +18,6 @@ class BandController extends Controller
         return view('home', compact('bands'));
     }
 
-     public function getAlbumsView($id){
-        $band = Band::find($id);
-        $albums = $band->albums;
-
-        return view('albums.albums_view', compact('band','albums'));
-    }
 
     public function editBand($id){
 

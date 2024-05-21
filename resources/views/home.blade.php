@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="bands-img">
-    <h1 class="mb-5">Explore some bands</h1>
+    <h1 class="mb-5 title-bands">Explore some bands</h1>
 </div>
 
 <div class="container mt-5">

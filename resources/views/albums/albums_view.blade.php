@@ -4,8 +4,12 @@
 
 
 
-<div class="container mt-5">
+<div class="bg-albums">
+    <h2 class="mb-5"></h2>
+</div>
+<div class="container">
     <h1 class="mb-5">{{ $band->name }}</h1>
+
     <table class="table align-middle mb-0 table-dark mb-5">
         <thead class="bg-dark">
             <tr>
