@@ -28,8 +28,8 @@ class BandController extends Controller
    public function updateBand(Request $request, $id)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'genre' => 'required|string|max:255',
+            'name' => 'required|string|max:50',
+            'genre' => 'required|string|max:50',
         ]);
 
         $band = Band::find($id);

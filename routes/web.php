@@ -14,7 +14,6 @@ Route::post('/update-band/{id}',[BandController::class, 'updateBand']) -> name('
 
 Route::get('albums/{id}', [AlbumController::class, 'getAlbumsView'])->name('albums.albums_view');
 
-Route::get('create',[UserController::class, 'insertUser']);
-
-Route::post('/logout',[UserController::class,'logout'])->name('logout');
+Route::post('register',[UserController::class, 'insertUser'])->name('user.register');
+Route::post('logout',[UserController::class,'logout'])->name('logout');
 Route::post('login', [UserController::class, 'login']);

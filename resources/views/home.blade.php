@@ -42,8 +42,14 @@
                     </td>
                     <td class="text-center">
                         <a href="{{ route('albums.albums_view', $band->id) }}" class="btn btn-info" mdbRipple >View</a>
-                        <a href="{{ route('band.edit', $band->id) }}" class="btn btn-warning" mdbRipple>Edit</a>
-                        <a href="{{ route('band.remove', $band->id) }}"class="btn btn-danger" mdbRipple>Delete</a>
+                        @auth
+                            @if (Auth::user()->type == 2 || Auth::user()->type == 1)
+                                <a href="{{ route('band.edit', $band->id) }}" class="btn btn-warning" mdbRipple>Edit</a>
+                            @endif
+                            @if (Auth::user()->type == 1)
+                                <a href="{{ route('band.remove', $band->id) }}" class="btn btn-danger" mdbRipple>Delete</a>
+                            @endif
+                        @endauth
                     </td>
                 </tr>
             @endforeach

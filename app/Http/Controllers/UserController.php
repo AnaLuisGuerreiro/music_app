@@ -9,18 +9,29 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-   public function insertUser()
-    {
-        // Dados do usuário
-        $user = User::create([
-            'name' => 'Ana',
-            'email' => 'ana@hotmail.com',
-            'password' => Hash::make('ana@hotmail.com'),
+   public function insertUser(Request $request)
+{
+    try {
+        // Validação dos dados do usuário
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:8|confirmed',
         ]);
 
-        // Redireciona para a página de login
-        return redirect('/login')->with('status', 'User inserted successfully');
+        // Criação do usuário
+        User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+            'user_type' => 2, // Definir 2 por padrão de user
+        ]);
+
+        return redirect('/home')->with('message', 'Great! ' .$request->name.' now you have an account');
+    } catch (ValidationException $e) {
+        return redirect()->back()->withErrors()->withInput();
     }
+}
 
        public function login(Request $request)
     {

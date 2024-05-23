@@ -14,7 +14,6 @@
         <thead class="bg-dark">
             <tr>
                 <th>Albums 💽</th>
-                <th>Albums 💽</th>
                 <th class="text-center">Actions 🖱</th>
             </tr>
         </thead>
