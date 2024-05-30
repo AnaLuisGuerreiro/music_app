@@ -22,7 +22,7 @@
     <nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
     style="background-color: rgb(29, 29, 29);">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/home"><img src="{{ asset('img/logo.png') }}" alt="Music logo"
+        <a class="navbar-brand" href="/"><img src="{{ asset('img/logo.png') }}" alt="Music logo"
             class="music-logo"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

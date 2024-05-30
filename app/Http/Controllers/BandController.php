@@ -37,7 +37,7 @@ class BandController extends Controller
         $band->genre = $request->genre;
         $band->save();
 
-        return redirect()->route('home')->with('message', 'Band updated successfully!');
+        return redirect()->route('/')->with('message', 'Band updated successfully!');
     }
 
 

@@ -1,6 +1,9 @@
 /* Home Page */
 @import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@100;200;300;400;500;600;700;800;900&family=Manrope:wght@300;400&display=swap");
 
+html, body {
+    height: 100%;
+}
 body {
     background-color: #212529;
     font-family: "Encode Sans Expanded", sans-serif;
@@ -9,7 +12,7 @@ body {
     color: whitesmoke;
 }
 
-h1{
+h1 {
     font-size: 50px;
     color: aliceblue;
     text-shadow: 1px 1px 2px aliceblue;
@@ -42,22 +45,65 @@ h1{
     height: 150px;
 }
 
-.bg-albums{
-  --s: 84px; /* control the size*/
-  --c1: #a8a8a8;
-  --c2: #5f5d5d;
-  --c3: #d9d9d9;
+.bg-albums {
+    --s: 84px; /* control the size*/
+    --c1: #a8a8a8;
+    --c2: #5f5d5d;
+    --c3: #d9d9d9;
 
-  --_g: 0 120deg,#0000 0;
-  background:
-    conic-gradient(from    0deg at calc(500%/6) calc(100%/3),var(--c3) var(--_g)),
-    conic-gradient(from -120deg at calc(100%/6) calc(100%/3),var(--c2) var(--_g)),
-    conic-gradient(from  120deg at calc(100%/3) calc(500%/6),var(--c1) var(--_g)),
-    conic-gradient(from  120deg at calc(200%/3) calc(500%/6),var(--c1) var(--_g)),
-    conic-gradient(from -180deg at calc(100%/3) 50%,var(--c2)  60deg,var(--c1) var(--_g)),
-    conic-gradient(from   60deg at calc(200%/3) 50%,var(--c1)  60deg,var(--c3) var(--_g)),
-    conic-gradient(from  -60deg at 50% calc(100%/3),var(--c1) 120deg,var(--c2) 0 240deg,var(--c3) 0);
-  background-size: calc(var(--s)*1.732) var(--s);
-  padding: 45px;
-  margin-bottom: 50px;
+    --_g: 0 120deg, #0000 0;
+    background: conic-gradient(
+            from 0deg at calc(500% / 6) calc(100% / 3),
+            var(--c3) var(--_g)
+        ),
+        conic-gradient(
+            from -120deg at calc(100% / 6) calc(100% / 3),
+            var(--c2) var(--_g)
+        ),
+        conic-gradient(
+            from 120deg at calc(100% / 3) calc(500% / 6),
+            var(--c1) var(--_g)
+        ),
+        conic-gradient(
+            from 120deg at calc(200% / 3) calc(500% / 6),
+            var(--c1) var(--_g)
+        ),
+        conic-gradient(
+            from -180deg at calc(100% / 3) 50%,
+            var(--c2) 60deg,
+            var(--c1) var(--_g)
+        ),
+        conic-gradient(
+            from 60deg at calc(200% / 3) 50%,
+            var(--c1) 60deg,
+            var(--c3) var(--_g)
+        ),
+        conic-gradient(
+            from -60deg at 50% calc(100% / 3),
+            var(--c1) 120deg,
+            var(--c2) 0 240deg,
+            var(--c3) 0
+        );
+    background-size: calc(var(--s) * 1.732) var(--s);
+    padding: 45px;
+    margin-bottom: 50px;
+}
+
+.login-container {
+    height: 100vh;
+}
+.login-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../img/login_img.avif");
+    background-size: cover;
+    background-position: center;
+    margin-right: 0;
+}
+.login-box {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

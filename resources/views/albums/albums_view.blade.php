@@ -14,7 +14,12 @@
         <thead class="bg-dark">
             <tr>
                 <th>Albums 💽</th>
-                <th class="text-center">Actions 🖱</th>
+                <th>Date release 📅</th>
+                @auth
+                    @if (Auth::user()->type == 2 || Auth::user()->type == 1)
+                        <th class="text-center">Actions 🖱</th>
+                    @endif
+                @endauth
             </tr>
         </thead>
         <tbody>
@@ -26,15 +31,21 @@
                             <img src="{{$album->image}}" alt="{{$album->name}}" class="album-img">
                             <div class="ms-3">
                                 <p class="fw-bold mb-1">{{ $album->name }}</p>
-                                <p class="mb-0 text-light">{{ $album->release_date }}</p>
                             </div>
                         </div>
                     </td>
                     <td>
-
+                    <p class="mb-0 text-light">{{ $album->release_date }}</p>
                     </td>
                     <td class="text-center">
-
+                        @auth
+                            @if (Auth::user()->type == 2 || Auth::user()->type == 1)
+                                <a href="{{ route('albums.album_edit', $band->id) }}" class="btn btn-warning" mdbRipple>Edit</a>
+                            @endif
+                            @if (Auth::user()->type == 1)
+                                <a href="{{ route('album.remove', $band->id) }}" class="btn btn-danger" mdbRipple>Delete</a>
+                            @endif
+                        @endauth
                     </td>
                 </tr>
                 @endforeach

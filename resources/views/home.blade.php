@@ -34,7 +34,8 @@
                     </td>
                     <td>
                         <!-- Número de álbuns da banda -->
-                        <p class="fw-normal mb-1">{{ $band->album_count }}
+                        <p class="fw-normal mb-1">
+                        {{ $band->album_count }}
                         @for($i = 0; $i < $band->album_count;$i++)
                         💿
                         @endfor

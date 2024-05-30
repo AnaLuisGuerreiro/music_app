@@ -27,7 +27,7 @@ class UserController extends Controller
             'user_type' => 2, // Definir 2 por padrão de user
         ]);
 
-        return redirect('/home')->with('message', 'Great! ' .$request->name.' now you have an account');
+        return redirect('/')->with('message', 'Great! ' .$request->name.' now you have an account');
     } catch (ValidationException $e) {
         return redirect()->back()->withErrors()->withInput();
     }
@@ -41,7 +41,7 @@ class UserController extends Controller
         ]);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->intended('home');
+            return redirect('/');
         } else {
             return redirect()->back()
                 ->withInput($request->only('email'))
@@ -52,6 +52,6 @@ class UserController extends Controller
      public function logout(Request $request)
     {
         Auth::logout();
-        return redirect('/home');
+        return redirect('/');
     }
 }
