@@ -12,13 +12,12 @@
 </head>
 
 <body>
-        @if (session('message'))
-<div class="container">
-    <div class="alert alert-success">
+   @if (session('message'))
+        <div class="alert alert-success position-fixed mx-auto" style="top: 0; left: 0; right: 0; z-index: 1050; width: 500px; text-align: center;">
             {{ session('message') }}
         </div>
     @endif
-</div>
+
     <nav class="navbar navbar-expand-lg  border-bottom border-body" data-bs-theme="dark"
     style="background-color: rgb(29, 29, 29);">
     <div class="container-fluid">
@@ -53,7 +52,9 @@
     </nav>
 
 
-    @yield('content')
+    <div class="content">
+        @yield('content')
+    </div>
 
     <section class="">
         <footer class="text-center text-white" style="background-color: #222222f1;">

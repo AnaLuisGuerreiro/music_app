@@ -13,9 +13,10 @@ Route::post('/update-band/{id}',[BandController::class, 'updateBand']) -> name('
 
 
 Route::get('albums/{id}', [AlbumController::class, 'getAlbumsView'])->name('albums.albums_view');
-Route::get('/edit-album/{id}',[AlbumController::class, 'editAlbum']) -> name('albums.album_edit');
-Route::post('/update-album/{id}',[AlbumController::class, 'updateAlbum']) -> name('album.update');
-Route::get('/remove-album/{id}',[AlbumController::class, 'removeAlbum']) -> name('album.remove');
+Route::get('/band/{band_id}/edit-album/{album_id}', [AlbumController::class, 'editAlbum'])->name('albums.album_edit');
+Route::post('/band/{band_id}/update-album/{album_id}', [AlbumController::class, 'updateAlbum'])->name('album.update');
+Route::get('/remove-album/{id}/{band_id}', [AlbumController::class, 'removeAlbum'])->name('album.remove');
+
 
 
 

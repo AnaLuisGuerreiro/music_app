@@ -27,7 +27,7 @@ class UserController extends Controller
             'user_type' => 2, // Definir 2 por padrão de user
         ]);
 
-        return redirect('/')->with('message', 'Great! ' .$request->name.' now you have an account');
+        return redirect('/')->with('message', 'Great! ' .$request->name.', now you have an account');
     } catch (ValidationException $e) {
         return redirect()->back()->withErrors()->withInput();
     }

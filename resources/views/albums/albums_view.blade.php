@@ -40,10 +40,10 @@
                     <td class="text-center">
                         @auth
                             @if (Auth::user()->type == 2 || Auth::user()->type == 1)
-                                <a href="{{ route('albums.album_edit', $band->id) }}" class="btn btn-warning" mdbRipple>Edit</a>
+                                <a href="{{ route('albums.album_edit', ['band_id' => $album->band_id, 'album_id' => $album->id]) }}" class="btn btn-warning" mdbRipple>Edit</a>
                             @endif
                             @if (Auth::user()->type == 1)
-                                <a href="{{ route('album.remove', $band->id) }}" class="btn btn-danger" mdbRipple>Delete</a>
+                                <a href="{{ route('album.remove', ['id' => $album->id, 'band_id' => $album->band_id]) }}" class="btn btn-danger" mdbRipple>Delete</a>
                             @endif
                         @endauth
                     </td>
